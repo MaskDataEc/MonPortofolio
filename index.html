@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Kpatchil Urbain, Full-Stack Analyst spécialisé en Data, Web.">
+    <title>Kpatchil Urbain | Full-Stack Analyst</title>
+    
+    <!-- Google Fonts: Inter pour le texte, Poppins pour les titres -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header id="navbar">
+        <nav class="container">
+            <a href="#" class="logo">F-S <span>Analyst.</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#timeline">Parcours</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Activer le mode sombre"><i class="fas fa-moon"></i></button>
+                <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero container">
+            <div class="hero-content reveal">
+                <p class="greeting">Bonjour, je suis <strong>Kpatchil Urbain</strong></p>
+                <h1><span class="typing-text"></span><span class="cursor">&nbsp;</span></h1>
+                <p class="subtitle">"J'analyse les données, conçois des solutions et développe des outils numériques pour transformer les besoins en résultats concrets."</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+                    <a href="chemin/vers/ton-cv.pdf" download class="btn btn-outline">Télécharger mon CV</a>
+                </div>
+            </div>
+            <div class="hero-image reveal">
+                <!-- Remplace par ta photo -->
+                <img src="https://via.placeholder.com/400" alt="Portrait de Kpatchil Urbain">
+            </div>
+        </section>
+
+        <!-- A PROPOS -->
+        <section id="about" class="about section bg-alt">
+            <div class="container">
+                <h2 class="section-title reveal">À propos de moi</h2>
+                <div class="about-grid">
+                    <div class="about-text reveal">
+                        <p>Passionné par l'intersection entre le <strong>business, la donnée et la technologie</strong>, j'interviens sur l'ensemble de la chaîne de valeur d'un projet numérique. Mon approche est résolument orientée résultats.</p>
+                        <p>Grâce à mon parcours hybride (Économie, Data Science, Web, Cybersécurité et ALX Ventures), je ne me contente pas de coder ou d'analyser : je m'assure que chaque solution apporte une véritable valeur ajoutée métier.</p>
+                    </div>
+                    <div class="stats-grid reveal">
+                        <div class="stat-card">
+                            <h3 class="counter" data-target="15">0</h3>
+                            <p>Projets Réalisés</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 class="counter" data-target="5">0</h3>
+                            <p>Certifications</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 class="counter" data-target="10">0</h3>
+                            <p>Technologies</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 class="counter" data-target="2">0</h3>
+                            <p>Années d'Expérience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPETENCES -->
+        <section id="skills" class="skills section container">
+            <h2 class="section-title reveal">Mes Compétences</h2>
+            <div class="skills-grid">
+                <div class="skill-card reveal">
+                    <i class="fas fa-chart-pie skill-icon"></i>
+                    <h3>Analyse de Données</h3>
+                    <p>Data Analysis, Data Cleaning, Data Viz, Reporting, Business Analysis, Python, SQL.</p>
+                </div>
+                <div class="skill-card reveal">
+                    <i class="fas fa-laptop-code skill-icon"></i>
+                    <h3>Développement Web</h3>
+                    <p>HTML5, CSS3, JavaScript.</p>
+                </div>
+                <div class="skill-card reveal">
+                    <i class="fas fa-database skill-icon"></i>
+                    <h3>Bases de Données</h3>
+                    <p>SQL, Modélisation, Conception relationnelle, Optimisation de requêtes.</p>
+                </div>
+                <div class="skill-card reveal">
+                    <i class="fas fa-shield-alt skill-icon"></i>
+                    <h3>Cybersécurité</h3>
+                    <p>Fondamentaux, Protection des données, Sensibilisation à la sécurité numérique.</p>
+                </div>
+                <div class="skill-card reveal">
+                    <i class="fas fa-lightbulb skill-icon"></i>
+                    <h3>Entrepreneuriat & Stratégie</h3>
+                    <p>ALX Ventures, Gestion de projet, Résolution de problèmes, Esprit analytique.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJETS (Chargement Dynamique) -->
+        <section id="projects" class="projects section bg-alt">
+            <div class="container">
+                <h2 class="section-title reveal">Mes Projets</h2>
+                
+                <!-- Filtres -->
+                <div class="project-filters reveal">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="data">Analyse de données</button>
+                    <button class="filter-btn" data-filter="web">Web Dev</button>
+                    <button class="filter-btn" data-filter="sql">SQL / Python</button>
+                </div>
+
+                <!-- Conteneur des projets générés par JS -->
+                <div class="projects-container" id="projects-container">
+                    <!-- Les cartes projets apparaitront ici -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PARCOURS / TIMELINE -->
+        <section id="timeline" class="timeline section container">
+            <h2 class="section-title reveal">Parcours & Certifications</h2>
+            <div class="timeline-container">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>ALX Ventures Founder Academy</h3>
+                        <p class="date">Année</p>
+                        <p>Formation en entrepreneuriat, innovation et création de solutions à forte valeur ajoutée.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Parcours Data Science & Analyse</h3>
+                        <p class="date">Année</p>
+                        <p>Maîtrise de l'analyse de données, Python, SQL et Data Visualization.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Introduction à la Cybersécurité</h3>
+                        <p class="date">Année</p>
+                        <p>Compréhension des enjeux sécuritaires et de la protection des données (Fondation professionnelle).</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Analyse et Politique Économique</h3>
+                        <p class="date">En cours</p>
+                        <p>Études approfondies permettant une forte compréhension macro/micro économique.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISION -->
+        <section id="vision" class="vision section bg-alt text-center">
+            <div class="container reveal">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <blockquote>
+                    "Je souhaite évoluer comme Full-Stack Analyst capable de relier les données, les technologies et les besoins métier afin de créer des solutions à forte valeur ajoutée."
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="contact section container">
+            <h2 class="section-title reveal">Me Contacter</h2>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h3>Discutons de votre prochain projet</h3>
+                    <p>Que ce soit pour analyser vos données, créer un outil sur mesure ou optimiser vos processus, je suis à votre écoute.</p>
+                    
+                    <div class="contact-links mt-2">
+                        <a href="mailto:ton.email@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> Kpatchilurbain36@gmail.com</a>
+                        <a href="https://linkedin.com/in/urbainkpatchil" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="https://github.com/tonprofil" target="_blank" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://wa.me/0022870901801" target="_blank" class="contact-item"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    </div>
+                </div>
+                
+                <form id="contact-form" class="reveal">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Votre Nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Votre Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder="Sujet" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Votre Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Envoyer le message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">F-S <span>Analyst.</span></div>
+            <p>&copy; 2026 Kpatchil Urbain. Tous droits réservés.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton Retour en haut -->
+    <button id="back-to-top" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+</html>
