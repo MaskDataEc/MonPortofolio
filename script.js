@@ -216,3 +216,50 @@ document.getElementById('contact-form').addEventListener('submit', (e) => {
     alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.');
     e.target.reset();
 });
+
+
+// --- 9. GESTION DYNAMIQUE DES CERTIFICATIONS (VIA CMS) ---
+const timelineContainer = document.getElementById('timeline-container');
+
+async function fetchCertificationsFromCMS() {
+    if(!timelineContainer) return;
+
+    try {
+        const response = await fetch('./data/certifications.json');
+        if (!response.ok) throw new Error("Fichier certifications introuvable");
+        
+        const data = await response.json();
+        const certifications = data.items || [];
+        
+        timelineContainer.innerHTML = ''; // On vide le conteneur
+
+        certifications.forEach(cert => {
+            // S'il y a un fichier (PDF ou image), on crée le bouton
+            const proofButton = cert.proofFile ? `
+                <a href="${cert.proofFile}" target="_blank" rel="noopener noreferrer" class="btn-cert">
+                    <i class="fas fa-file-download"></i> Voir la preuve
+                </a>
+            ` : '';
+
+            const certHTML = `
+                <div class="timeline-item reveal active">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>${cert.title}</h3>
+                        <p class="date">${cert.year}</p>
+                        <p>${cert.description}</p>
+                        ${proofButton}
+                    </div>
+                </div>
+            `;
+            timelineContainer.innerHTML += certHTML;
+        });
+        
+    } catch (error) {
+        console.error("Erreur de chargement des certifications :", error);
+        timelineContainer.innerHTML = `<p style="text-align:center;">Mise à jour du parcours en cours...</p>`;
+    }
+}
+
+// On lance la fonction au démarrage
+fetchCertificationsFromCMS();
