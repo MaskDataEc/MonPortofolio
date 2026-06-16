@@ -1,0 +1,26 @@
+backend:
+  name: git-gateway
+  branch: main # Mets 'master' si ta branche principale s'appelle master
+
+media_folder: "assets/uploads" # Le dossier où iront les images uploadées
+public_folder: "assets/uploads"
+
+collections:
+  - name: "portfolio"
+    label: "Mon Portfolio"
+    files:
+      - file: "data/projects.json"
+        label: "Mes Projets"
+        name: "projects"
+        fields:
+          - name: "items"
+            label: "Liste de mes projets"
+            widget: "list"
+            fields:
+              - {label: "Titre du projet", name: "title", widget: "string"}
+              - {label: "Catégorie", name: "category", widget: "select", options: ["data", "web", "sql"]}
+              - {label: "Image", name: "image", widget: "image", required: false}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Technologies (Séparées par des virgules)", name: "tech", widget: "string", hint: "Ex: Python, Pandas, SQL"}
+              - {label: "Lien GitHub", name: "githubLink", widget: "string", required: false}
+              - {label: "Lien Démo", name: "demoLink", widget: "string", required: false}
