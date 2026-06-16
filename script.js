@@ -127,61 +127,54 @@ function startCounters() {
     });
 }
 
-// --- 6. GESTION DYNAMIQUE DES PROJETS ---
-// Base de données de tes projets (Facile à modifier !)
-const projectsData = [
-    {
-        title: "Dashboard Ventes & Marketing",
-        category: "data",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=500",
-        desc: "Nettoyage de données et création d'un tableau de bord interactif pour suivre les KPI de l'entreprise.",
-        tech: ["Python", "Pandas", "Matplotlib", "SQL"],
-        github: "#",
-        demo: "#"
-    },
-    {
-        title: "Application Web de Gestion",
-        category: "web",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=500",
-        desc: "Développement d'une interface web responsive pour la gestion interne d'un processus métier.",
-        tech: ["HTML5", "CSS3", "JavaScript"],
-        github: "#",
-        demo: "#"
-    },
-    {
-        title: "Analyse Économique Sectorielle",
-        category: "sql",
-        image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=500",
-        desc: "Extraction, modélisation et optimisation de requêtes sur une large base de données relationnelle.",
-        tech: ["PostgreSQL", "Data Viz", "Business Analysis"],
-        github: "#",
-        demo: "#"
-    }
-];
+// --- 6. GESTION DYNAMIQUE DES PROJETS (VIA DECAP CMS JSON) ---
 
 const projectsContainer = document.getElementById('projects-container');
 const filterBtns = document.querySelectorAll('.filter-btn');
+let globalProjectsData = [];
+
+async function fetchProjectsFromCMS() {
+    try {
+        // On va lire le fichier JSON généré par le CMS
+        const response = await fetch('./data/projects.json');
+        if (!response.ok) throw new Error("Fichier introuvable");
+        
+        const data = await response.json();
+        
+        // Le CMS stocke les projets dans le tableau "items"
+        globalProjectsData = data.items || []; 
+        displayProjects('all'); 
+        
+    } catch (error) {
+        console.error("Erreur de chargement des projets :", error);
+        projectsContainer.innerHTML = `<p style="text-align:center; width:100%;">Aucun projet à afficher pour le moment.</p>`;
+    }
+}
 
 function displayProjects(filterType) {
-    projectsContainer.innerHTML = ''; // Vide le conteneur
+    projectsContainer.innerHTML = ''; 
     
     const filteredProjects = filterType === 'all' 
-        ? projectsData 
-        : projectsData.filter(project => project.category === filterType);
+        ? globalProjectsData 
+        : globalProjectsData.filter(project => project.category === filterType);
 
     filteredProjects.forEach(project => {
+        // Le CMS nous donne "Python, Pandas", on le transforme en tableau
+        const techArray = project.tech ? project.tech.split(',').map(t => t.trim()) : [];
+        const imageUrl = project.image ? project.image : 'https://via.placeholder.com/500x300';
+
         const projectHTML = `
             <div class="project-card reveal active">
-                <img src="${project.image}" alt="${project.title}" class="project-img">
+                <img src="${imageUrl}" alt="${project.title}" class="project-img">
                 <div class="project-content">
                     <h3 class="project-title">${project.title}</h3>
-                    <p class="project-desc">${project.desc}</p>
+                    <p class="project-desc">${project.description}</p>
                     <div class="project-tech">
-                        ${project.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+                        ${techArray.map(t => `<span class="tech-tag">${t}</span>`).join('')}
                     </div>
                     <div class="project-links">
-                        <a href="${project.github}" target="_blank" rel="noopener noreferrer" ><i class="fab fa-github"></i> Code</a>
-                        <a href="${project.demo}" target="_blank" rel="noopener noreferrer" ><i class="fas fa-external-link-alt"></i> Démo</a>
+                        ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>` : ''}
+                        ${project.demoLink ? `<a href="${project.demoLink}" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Démo</a>` : ''}
                     </div>
                 </div>
             </div>
@@ -190,16 +183,14 @@ function displayProjects(filterType) {
     });
 }
 
-// Initialisation des projets
-displayProjects('all');
+// Initialisation
+fetchProjectsFromCMS();
 
-// Filtrage au clic
+// Gestion des filtres
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Gérer la classe active
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        // Filtrer
         displayProjects(btn.getAttribute('data-filter'));
     });
 });
