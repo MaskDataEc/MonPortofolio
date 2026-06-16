@@ -24,3 +24,19 @@ collections:
               - {label: "Technologies (Séparées par des virgules)", name: "tech", widget: "string", hint: "Ex: Python, Pandas, SQL"}
               - {label: "Lien GitHub", name: "githubLink", widget: "string", required: false}
               - {label: "Lien Démo", name: "demoLink", widget: "string", required: false}
+
+  - name: "timeline"
+    label: "Parcours & Certifications"
+    files:
+      - file: "data/certifications.json"
+        label: "Mes Certifications"
+        name: "certifications"
+        fields:
+          - name: "items"
+            label: "Liste de mon parcours"
+            widget: "list"
+            fields:
+              - {label: "Titre de la formation/certification", name: "title", widget: "string"}
+              - {label: "Année (ex: 2023 ou En cours)", name: "year", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Fichier de preuve (PDF ou Image)", name: "proofFile", widget: "file", required: false, hint: "Optionnel. Sera téléchargeable par le recruteur."}
