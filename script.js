@@ -180,8 +180,8 @@ function displayProjects(filterType) {
                         ${project.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
                     </div>
                     <div class="project-links">
-                        <a href="${project.github}" target="_blank"><i class="fab fa-github"></i> Code</a>
-                        <a href="${project.demo}" target="_blank"><i class="fas fa-external-link-alt"></i> Démo</a>
+                        <a href="${project.github}" target="_blank" rel="noopener noreferrer" ><i class="fab fa-github"></i> Code</a>
+                        <a href="${project.demo}" target="_blank" rel="noopener noreferrer" ><i class="fas fa-external-link-alt"></i> Démo</a>
                     </div>
                 </div>
             </div>
