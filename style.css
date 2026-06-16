@@ -201,10 +201,29 @@ nav {
     margin-bottom: 10px;
 }
 
+/* CORRECTION POUR LE TEXTE ANIMÉ (Empêche de casser sur mobile) */
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 20px;
-    height: 90px; /* Evite le saut de ligne pendant l'animation */
+    min-height: 100px; /* min-height au lieu de height */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* CORRECTION POUR LE MOBILE */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem; /* Texte un peu plus petit sur mobile */
+        justify-content: center; /* Centre le texte */
+    }
+    
+    .hero-image img {
+        width: 220px; /* Taille adaptée pour mobile */
+        height: 220px;
+        object-fit: cover; /* Assure que l'image remplit bien le rond */
+        background-color: var(--color-border); /* Fond de secours si l'image charge mal */
+    }
 }
 
 .typing-text { color: var(--color-accent); }
