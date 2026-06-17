@@ -4,7 +4,7 @@ backend:
   branch: main
   # Remplace par l'URL de ton Worker Cloudflare une fois déployé (voir cms-oauth-worker/README.md)
   base_url: https://9f9b7d2c.cms-oauth-worker.pages.dev
-  auth_endpoint: auth
+  auth_endpoint: /api/auth
 
 media_folder: "assets/uploads" # Le dossier où iront les images uploadées
 public_folder: "assets/uploads"
