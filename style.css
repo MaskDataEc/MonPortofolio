@@ -578,3 +578,17 @@ footer {
     .nav-links.active { right: 0; }
     .mobile-menu-btn { display: block; }
 }
+
+/* Utilitaire : élément masqué visuellement et pour les lecteurs d'écran,
+   mais toujours dans le flux (utilisé pour le champ honeypot anti-spam) */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
