@@ -1,6 +1,10 @@
 backend:
-  name: git-gateway
-  branch: main # Mets 'master' si ta branche principale s'appelle master
+  name: github
+  repo: MaskDataEc/MonPortofolio
+  branch: main
+  # Remplace par l'URL de ton Worker Cloudflare une fois déployé (voir cms-oauth-worker/README.md)
+  base_url: https://decap-cms-oauth.TON-SOUS-DOMAINE.workers.dev
+  auth_endpoint: auth
 
 media_folder: "assets/uploads" # Le dossier où iront les images uploadées
 public_folder: "assets/uploads"
