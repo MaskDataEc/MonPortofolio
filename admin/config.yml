@@ -3,7 +3,7 @@ backend:
   repo: MaskDataEc/MonPortofolio
   branch: main
   # Remplace par l'URL de ton Worker Cloudflare une fois déployé (voir cms-oauth-worker/README.md)
-  base_url: https://decap-cms-oauth.TON-SOUS-DOMAINE.workers.dev
+  base_url: https://9f9b7d2c.cms-oauth-worker.pages.dev
   auth_endpoint: auth
 
 media_folder: "assets/uploads" # Le dossier où iront les images uploadées
