@@ -129,6 +129,31 @@ function startCounters() {
 
 // --- 6. GESTION DYNAMIQUE DES PROJETS (VIA DECAP CMS JSON) ---
 
+// Échappe le texte avant de l'injecter en HTML, pour éviter toute injection
+// (XSS) si jamais une donnée du JSON contient des caractères HTML/JS.
+function escapeHTML(str) {
+    if (str === null || str === undefined) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+// Valide qu'une URL est bien http(s) avant de l'utiliser dans un attribut href/src
+// (évite les liens type javascript: ou data: injectés via le CMS).
+function safeURL(url) {
+    if (!url) return '';
+    try {
+        const parsed = new URL(url, window.location.origin);
+        return (parsed.protocol === 'http:' || parsed.protocol === 'https:') ? parsed.href : '';
+    } catch {
+        // URL relative simple (ex: assets/uploads/xxx.png) sans schéma explicite
+        return /^[a-zA-Z0-9_\-./%]+$/.test(url) ? url : '';
+    }
+}
+
 const projectsContainer = document.getElementById('projects-container');
 const filterBtns = document.querySelectorAll('.filter-btn');
 let globalProjectsData = [];
@@ -161,20 +186,22 @@ function displayProjects(filterType) {
     filteredProjects.forEach(project => {
         // Le CMS nous donne "Python, Pandas", on le transforme en tableau
         const techArray = project.tech ? project.tech.split(',').map(t => t.trim()) : [];
-        const imageUrl = project.image ? project.image : 'https://via.placeholder.com/500x300';
+        const imageUrl = safeURL(project.image) || 'https://via.placeholder.com/500x300';
+        const githubLink = safeURL(project.githubLink);
+        const demoLink = safeURL(project.demoLink);
 
         const projectHTML = `
             <div class="project-card reveal active">
-                <img src="${imageUrl}" alt="${project.title}" class="project-img">
+                <img src="${escapeHTML(imageUrl)}" alt="${escapeHTML(project.title)}" class="project-img" loading="lazy">
                 <div class="project-content">
-                    <h3 class="project-title">${project.title}</h3>
-                    <p class="project-desc">${project.description}</p>
+                    <h3 class="project-title">${escapeHTML(project.title)}</h3>
+                    <p class="project-desc">${escapeHTML(project.description)}</p>
                     <div class="project-tech">
-                        ${techArray.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+                        ${techArray.map(t => `<span class="tech-tag">${escapeHTML(t)}</span>`).join('')}
                     </div>
                     <div class="project-links">
-                        ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>` : ''}
-                        ${project.demoLink ? `<a href="${project.demoLink}" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Démo</a>` : ''}
+                        ${githubLink ? `<a href="${escapeHTML(githubLink)}" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>` : ''}
+                        ${demoLink ? `<a href="${escapeHTML(demoLink)}" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Démo</a>` : ''}
                     </div>
                 </div>
             </div>
@@ -211,11 +238,47 @@ backToTopBtn.addEventListener("click", () => {
 });
 
 // --- 8. PREVENIR LE RECHARGEMENT DU FORMULAIRE ---
-document.getElementById('contact-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.');
-    e.target.reset();
-});
+// IMPORTANT : on cible le formulaire par sa structure, pas par un id qui n'existe pas.
+// L'ancien code utilisait getElementById('contact-form'), un id absent du HTML,
+// ce qui provoquait une erreur fatale et empêchait TOUT le code situé plus bas
+// dans ce fichier de s'exécuter, dont le chargement des certifications ci-dessous.
+const contactForm = document.querySelector('.contact-grid form');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Envoi en cours...';
+        }
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.');
+                contactForm.reset();
+            } else {
+                alert("Une erreur est survenue lors de l'envoi. Merci de réessayer ou de m'écrire directement par email.");
+            }
+        } catch (error) {
+            console.error("Erreur d'envoi du formulaire :", error);
+            alert("Une erreur est survenue lors de l'envoi. Merci de réessayer ou de m'écrire directement par email.");
+        } finally {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
+        }
+    });
+}
 
 
 // --- 9. GESTION DYNAMIQUE DES CERTIFICATIONS (VIA CMS) ---
@@ -235,8 +298,9 @@ async function fetchCertificationsFromCMS() {
 
         certifications.forEach(cert => {
             // S'il y a un fichier (PDF ou image), on crée le bouton
-            const proofButton = cert.proofFile ? `
-                <a href="${cert.proofFile}" target="_blank" rel="noopener noreferrer" class="btn-cert">
+            const proofUrl = safeURL(cert.proofFile);
+            const proofButton = proofUrl ? `
+                <a href="${escapeHTML(proofUrl)}" target="_blank" rel="noopener noreferrer" class="btn-cert">
                     <i class="fas fa-file-download"></i> Voir la preuve
                 </a>
             ` : '';
@@ -245,9 +309,9 @@ async function fetchCertificationsFromCMS() {
                 <div class="timeline-item reveal active">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>${cert.title}</h3>
-                        <p class="date">${cert.year}</p>
-                        <p>${cert.description}</p>
+                        <h3>${escapeHTML(cert.title)}</h3>
+                        <p class="date">${escapeHTML(cert.year)}</p>
+                        <p>${escapeHTML(cert.description)}</p>
                         ${proofButton}
                     </div>
                 </div>
