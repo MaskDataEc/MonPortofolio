@@ -3,12 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src * data: blob:; font-src 'self' https://unpkg.com data:; connect-src 'self' https://api.github.com https://github.com https://*.workers.dev; worker-src 'self' blob:; frame-src 'self'; object-src 'none'; base-uri 'self';">
     <title>Administration du Portfolio</title>
-    <!-- Script d'authentification -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <!-- Script du CMS Decap -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <!-- Script du CMS Decap, version figée + vérifiée par hash d'intégrité
+         (évite qu'une mise à jour automatique non vérifiée ne casse le CMS
+         ou n'introduise une faille de sécurité côté CDN). -->
+    <script
+      src="https://unpkg.com/decap-cms@3.14.1/dist/decap-cms.js"
+      integrity="sha384-K+E/B3QG3FJrtRXoyUjME4ilx71pYGyrvAVxYvd/p0zCPuXsc3eoEuSzUW3Ke63V"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
