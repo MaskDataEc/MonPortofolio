@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio de Kpatchil Urbain, Full-Stack Analyst spécialisé en Data, Web.">
+
+    <!-- En-têtes de sécurité via meta (GitHub Pages ne permet pas de headers HTTP personnalisés) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self' https://formspree.io; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action https://formspree.io;">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Kpatchil Urbain | Full-Stack Analyst</title>
     
     <!-- Google Fonts: Inter pour le texte, Poppins pour les titres -->
@@ -12,8 +16,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
-
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -46,11 +48,13 @@
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">Voir mes projets</a>
                     <a href="chemin/vers/ton-cv.pdf" download class="btn btn-outline">Télécharger mon CV</a>
+                    <!-- TODO: ce lien est un placeholder qui pointe vers un fichier inexistant.
+                         Ajoute ton vrai CV (ex: assets/uploads/cv-kpatchil-urbain.pdf) et mets à jour le href ci-dessus. -->
                 </div>
             </div>
             <div class="hero-image reveal">
                 <!-- Remplace par ta photo -->
-                <img src="assets/uploads/1766109470325.jpeg" alt="Portrait de Kpatchil Urbain">
+                <img src="assets/uploads/portrait-urbain-kpatchil.jpg" alt="Portrait de Kpatchil Urbain" width="900" height="900" loading="eager">
             </div>
         </section>
 
@@ -137,15 +141,13 @@
             </div>
         </section>
 
-        <!-- PARCOURS / TIMELINE -->
-      <!-- PARCOURS / TIMELINE (Géré par le CMS) -->
-<section id="timeline" class="timeline section container">
-    <h2 class="section-title reveal">Parcours & Certifications</h2>
-    <!-- On ajoute l'ID "timeline-container" ici -->
-    <div class="timeline-container" id="timeline-container">
-        <!-- Les certifications apparaîtront ici grâce à JavaScript -->
-    </div>
-</section>
+        <!-- PARCOURS / TIMELINE (Géré par le CMS) -->
+        <section id="timeline" class="timeline section container">
+            <h2 class="section-title reveal">Parcours & Certifications</h2>
+            <div class="timeline-container" id="timeline-container">
+                <!-- Les certifications apparaîtront ici grâce à JavaScript -->
+            </div>
+        </section>
 
         <!-- VISION -->
         <section id="vision" class="vision section bg-alt text-center">
@@ -166,14 +168,17 @@
                     <p>Que ce soit pour analyser vos données, créer un outil sur mesure ou optimiser vos processus, je suis à votre écoute.</p>
                     
                     <div class="contact-links mt-2">
-                        <a href="mailto:ton.email@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> Kpatchilurbain36@gmail.com</a>
+                        <a href="mailto:Kpatchilurbain36@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> Kpatchilurbain36@gmail.com</a>
                         <a href="https://linkedin.com/in/urbainkpatchil" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                        <a href="https://github.com/tonprofil" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://wa.me/0022870901801" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="https://github.com/MaskDataEc" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://wa.me/+22870901801" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                     </div>
                 </div>
                 
                 <form action="https://formspree.io/f/mykavldo" method="POST">
+    <!-- Champ piège anti-spam (invisible pour les humains, les bots le remplissent) -->
+    <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off">
+
     <div class="form-group">
         <input type="text" id="name" name="name" placeholder="Votre Nom" required>
     </div>
@@ -204,8 +209,8 @@
             <div class="footer-logo">F-S <span>Analyst.</span></div>
             <p>&copy; 2026 Kpatchil Urbain. Tous droits réservés.</p>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/urbainkpatchil" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/MaskDataEc" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </footer>
@@ -214,14 +219,5 @@
     <button id="back-to-top" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></button>
 
     <script src="script.js"></script>
-    <script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
-      }
-    });
-  }
-</script>
 </body>
 </html>
