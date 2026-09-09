@@ -9,7 +9,8 @@
     --color-accent-hover: #0891b2;
     --color-border: #e2e8f0;
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    
+    --header-bg: rgba(255, 255, 255, 0.9);
+
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
     --transition: all 0.3s ease;
@@ -24,6 +25,7 @@
     --color-primary: #ffffff;
     --color-border: #1e293b;
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --header-bg: rgba(10, 15, 26, 0.9);
 }
 
 /* RESET & BASE */
@@ -35,6 +37,13 @@
 
 html {
     scroll-behavior: smooth;
+    /* Compense la navbar fixe (~80px) lors des sauts vers les ancres */
+    scroll-padding-top: 90px;
+}
+
+::selection {
+    background-color: var(--color-accent);
+    color: #fff;
 }
 
 body {
@@ -133,8 +142,9 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(var(--color-bg-alt), 0.9);
+    background-color: var(--header-bg);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
@@ -165,7 +175,21 @@ nav {
     transition: var(--transition);
 }
 
-.nav-links a:hover { color: var(--color-accent); }
+.nav-links a:hover,
+.nav-links a.active { color: var(--color-accent); }
+
+.nav-links a { position: relative; padding: 6px 2px; }
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    border-radius: 1px;
+}
 
 .nav-actions {
     display: flex;
@@ -487,6 +511,47 @@ input:focus, textarea:focus {
     border-color: var(--color-accent);
 }
 
+/* Messages de statut du formulaire (envoi réussi / erreur) */
+.form-status {
+    display: none;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.form-status.visible { display: block; }
+
+.form-status.success {
+    background-color: rgba(16, 185, 129, 0.12);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.form-status.error {
+    background-color: rgba(239, 68, 68, 0.12);
+    color: #dc2626;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+/* État vide (aucun projet dans une catégorie) */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--color-text-light);
+    background-color: var(--color-bg);
+    border: 1px dashed var(--color-border);
+    border-radius: 10px;
+}
+
+.empty-state i {
+    font-size: 2.2rem;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+    display: block;
+}
+
 /* FOOTER CORRIGÉ */
 footer {
     background-color: var(--color-bg-alt); /* S'adapte au mode sombre/clair */
@@ -553,6 +618,27 @@ footer {
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ACCESSIBILITÉ CLAVIER : contour visible au focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Respecte les utilisateurs sensibles au mouvement */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    .reveal { opacity: 1; transform: none; }
 }
 
 /* RESPONSIVE */

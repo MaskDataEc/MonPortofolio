@@ -8,13 +8,32 @@
     <!-- En-têtes de sécurité via meta (GitHub Pages ne permet pas de headers HTTP personnalisés) -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self' https://formspree.io; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action https://formspree.io;">
     <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="author" content="Kpatchil Urbain">
+    <meta name="theme-color" content="#0a0f1a">
     <title>Kpatchil Urbain | Full-Stack Analyst</title>
-    
+
+    <!-- Open Graph / Twitter : aperçu soigné lors du partage du lien -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kpatchil Urbain | Full-Stack Analyst">
+    <meta property="og:description" content="Portfolio de Kpatchil Urbain, Full-Stack Analyst spécialisé en Data, Web et Cybersécurité.">
+    <meta property="og:url" content="https://maskdataec.github.io/MonPortofolio/">
+    <meta property="og:image" content="https://maskdataec.github.io/MonPortofolio/assets/uploads/portrait-urbain-kpatchil.jpg">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Kpatchil Urbain | Full-Stack Analyst">
+    <meta name="twitter:description" content="Portfolio de Kpatchil Urbain, Full-Stack Analyst spécialisé en Data, Web et Cybersécurité.">
+
+    <!-- Favicon (SVG inline, aucune requête supplémentaire) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0f1a'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='34' font-weight='700' fill='%2306b6d4' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+
     <!-- Google Fonts: Inter pour le texte, Poppins pour les titres -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -32,7 +51,7 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <button id="theme-toggle" aria-label="Activer le mode sombre"><i class="fas fa-moon"></i></button>
+                <button id="theme-toggle" aria-label="Activer le mode sombre" aria-pressed="false"><i class="fas fa-moon"></i></button>
                 <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
             </div>
         </nav>
@@ -43,17 +62,14 @@
         <section id="home" class="hero container">
             <div class="hero-content reveal">
                 <p class="greeting">Bonjour, je suis <strong>Kpatchil Urbain</strong></p>
-                <h1><span class="typing-text"></span><span class="cursor">&nbsp;</span></h1>
+                <h1 aria-label="Full-Stack Analyst"><span class="typing-text"></span><span class="cursor" aria-hidden="true">&nbsp;</span></h1>
                 <p class="subtitle">"J'analyse les données, conçois des solutions et développe des outils numériques pour transformer les besoins en résultats concrets."</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-                    <a href="chemin/vers/ton-cv.pdf" download class="btn btn-outline">Télécharger mon CV</a>
-                    <!-- TODO: ce lien est un placeholder qui pointe vers un fichier inexistant.
-                         Ajoute ton vrai CV (ex: assets/uploads/cv-kpatchil-urbain.pdf) et mets à jour le href ci-dessus. -->
+                    <a href="assets/uploads/cv-kpatchil-urbain.pdf" download="CV-Kpatchil-Urbain.pdf" class="btn btn-outline">Télécharger mon CV</a>
                 </div>
             </div>
             <div class="hero-image reveal">
-                <!-- Remplace par ta photo -->
                 <img src="assets/uploads/portrait-urbain-kpatchil.jpg" alt="Portrait de Kpatchil Urbain" width="900" height="900" loading="eager">
             </div>
         </section>
@@ -168,30 +184,37 @@
                     <p>Que ce soit pour analyser vos données, créer un outil sur mesure ou optimiser vos processus, je suis à votre écoute.</p>
                     
                     <div class="contact-links mt-2">
-                        <a href="mailto:Kpatchilurbain36@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> Kpatchilurbain36@gmail.com</a>
-                        <a href="https://linkedin.com/in/urbainkpatchil" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                        <a href="https://github.com/MaskDataEc" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://wa.me/+22870901801" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="mailto:kpatchilurbain36@gmail.com" class="contact-item"><i class="fas fa-envelope" aria-hidden="true"></i> kpatchilurbain36@gmail.com</a>
+                        <a href="https://linkedin.com/in/urbainkpatchil" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+                        <a href="https://github.com/MaskDataEc" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                        <a href="https://wa.me/22870901801" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
                     </div>
                 </div>
                 
-                <form action="https://formspree.io/f/mykavldo" method="POST">
+                <form action="https://formspree.io/f/mykavldo" method="POST" novalidate>
     <!-- Champ piège anti-spam (invisible pour les humains, les bots le remplissent) -->
-    <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off">
+    <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <!-- Zone de message de statut (succès / erreur), mise à jour par JavaScript -->
+    <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
 
     <div class="form-group">
-        <input type="text" id="name" name="name" placeholder="Votre Nom" required>
+        <label for="name" class="visually-hidden">Votre nom</label>
+        <input type="text" id="name" name="name" placeholder="Votre Nom" autocomplete="name" required>
     </div>
 
     <div class="form-group">
-        <input type="email" id="email" name="email" placeholder="Votre Email" required>
+        <label for="email" class="visually-hidden">Votre email</label>
+        <input type="email" id="email" name="email" placeholder="Votre Email" autocomplete="email" required>
     </div>
 
     <div class="form-group">
+        <label for="subject" class="visually-hidden">Sujet</label>
         <input type="text" id="subject" name="subject" placeholder="Sujet" required>
     </div>
 
     <div class="form-group">
+        <label for="message" class="visually-hidden">Votre message</label>
         <textarea id="message" name="message" rows="5" placeholder="Votre Message" required></textarea>
     </div>
 
@@ -207,7 +230,7 @@
     <footer>
         <div class="container footer-content">
             <div class="footer-logo">F-S <span>Analyst.</span></div>
-            <p>&copy; 2026 Kpatchil Urbain. Tous droits réservés.</p>
+            <p>&copy; <span id="footer-year">2026</span> Kpatchil Urbain. Tous droits réservés.</p>
             <div class="social-icons">
                 <a href="https://linkedin.com/in/urbainkpatchil" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/MaskDataEc" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>

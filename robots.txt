@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://maskdataec.github.io/MonPortofolio/sitemap.xml
