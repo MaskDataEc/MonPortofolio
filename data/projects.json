@@ -2,7 +2,7 @@
   "items": [
     {
       "title": "Mon Portfolio Web avec CMS intégré",
-      "category": "data",
+      "category": "web",
       "image": "/MonPortofolio/assets/uploads/apercu-portfolio.png",
       "description": "Site portfolio statique et performant (HTML/CSS/JS) avec gestion de contenu décentralisée via Decap CMS, authentification OAuth déployée sur Cloudflare Workers, mode sombre, animations au scroll et formulaire de contact sécurisé (CSP, honeypot anti-spam).",
       "tech": "HTML5, CSS3, JavaScript, Decap CMS",
