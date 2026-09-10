@@ -2,9 +2,10 @@ backend:
   name: github
   repo: MaskDataEc/MonPortofolio
   branch: main
-  # Fournisseur OAuth déployé sur Cloudflare (voir cms-oauth-worker/README.md)
-  base_url: https://9f9b7d2c.cms-oauth-worker.pages.dev
-  auth_endpoint: /api/auth
+  # Connexion avec un Personal Access Token GitHub (bouton "Sign in with
+  # token" sur la page de connexion) : aucun serveur OAuth à maintenir.
+  # Créer le token sur https://github.com/settings/tokens (scope "repo").
+  auth_methods: [token]
 
 site_url: https://maskdataec.github.io/MonPortofolio/
 media_folder: "assets/uploads" # Le dossier où iront les images uploadées

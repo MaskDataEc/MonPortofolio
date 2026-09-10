@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src * data: blob:; font-src 'self' https://unpkg.com data:; connect-src 'self' https://api.github.com https://github.com https://*.workers.dev; worker-src 'self' blob:; frame-src 'self'; object-src 'none'; base-uri 'self';">
+    <!-- CSP adaptée à Sveltia CMS : script depuis unpkg (version figée + SRI),
+         API GitHub pour le backend, styles inline de l'application -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src * data: blob:; media-src * data: blob:; connect-src 'self' https://api.github.com https://github.com https://*.githubusercontent.com https://unpkg.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self';">
     <title>Administration du Portfolio</title>
   </head>
   <body>
-    <!-- Script du CMS Decap, version figée + vérifiée par hash d'intégrité
-         (évite qu'une mise à jour automatique non vérifiée ne casse le CMS
-         ou n'introduise une faille de sécurité côté CDN). -->
+    <!-- Sveltia CMS : alternative moderne à Decap, compatible avec le même
+         config.yml. Connexion par Personal Access Token GitHub ("Sign in with
+         token") — plus de serveur OAuth à maintenir. Version figée + hash
+         d'intégrité (SRI) pour garantir l'intégrité du CDN. -->
     <script
-      src="https://unpkg.com/decap-cms@3.14.1/dist/decap-cms.js"
-      integrity="sha384-K+E/B3QG3FJrtRXoyUjME4ilx71pYGyrvAVxYvd/p0zCPuXsc3eoEuSzUW3Ke63V"
+      src="https://unpkg.com/@sveltia/cms@0.209.1/dist/sveltia-cms.js"
+      integrity="sha384-+LjBwm1JrV6L7Nptv96H1C6SYZ0R3HTtHpta0Nuqs9o9Rtr47aPiXZaspb5VTWsM"
       crossorigin="anonymous"
     ></script>
   </body>
