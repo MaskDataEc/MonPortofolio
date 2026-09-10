@@ -2,14 +2,57 @@ backend:
   name: github
   repo: MaskDataEc/MonPortofolio
   branch: main
-  # Remplace par l'URL de ton Worker Cloudflare une fois déployé (voir cms-oauth-worker/README.md)
+  # Fournisseur OAuth déployé sur Cloudflare (voir cms-oauth-worker/README.md)
   base_url: https://9f9b7d2c.cms-oauth-worker.pages.dev
   auth_endpoint: /api/auth
 
+site_url: https://maskdataec.github.io/MonPortofolio/
 media_folder: "assets/uploads" # Le dossier où iront les images uploadées
-public_folder: "assets/uploads"
+# Chemin ABSOLU depuis la racine du domaine : le site est publié dans le
+# sous-chemin /MonPortofolio/ (GitHub Pages projet). Nécessaire pour que
+# l'aperçu des images fonctionne dans l'admin ET sur le site publié.
+public_folder: "/MonPortofolio/assets/uploads"
 
 collections:
+  - name: "settings"
+    label: "Paramètres du site"
+    files:
+      - file: "data/settings.json"
+        label: "Textes du site"
+        name: "settings"
+        fields:
+          - {label: "Titre de l'onglet (SEO)", name: "seoTitle", widget: "string"}
+          - {label: "Logo — préfixe", name: "logoPrefix", widget: "string", hint: "Ex: F-S"}
+          - {label: "Logo — mot en couleur", name: "logoHighlight", widget: "string", hint: "Ex: Analyst."}
+          - label: "Accroche du hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Texte avant le nom", name: "greeting", widget: "string", hint: "Ex: Bonjour, je suis"}
+              - {label: "Votre nom", name: "name", widget: "string"}
+              - {label: "Métiers affichés (machine à écrire)", name: "roles", widget: "list", field: {label: "Métier", name: "role", widget: "string"}}
+              - {label: "Phrase de présentation", name: "subtitle", widget: "text"}
+          - label: "Section À propos"
+            name: "about"
+            widget: "object"
+            fields:
+              - {label: "Paragraphes", name: "paragraphs", widget: "list", field: {label: "Paragraphe", name: "paragraph", widget: "text"}, hint: "Astuce : entourez un passage de ** doubles étoiles ** pour le mettre en gras."}
+              - label: "Chiffres clés"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - {label: "Valeur (nombre)", name: "value", widget: "number"}
+                  - {label: "Légende", name: "label", widget: "string", hint: "Ex: Projets Réalisés"}
+          - {label: "Citation (section Vision)", name: "visionQuote", widget: "text"}
+          - label: "Coordonnées"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "URL LinkedIn", name: "linkedin", widget: "string", required: false}
+              - {label: "URL GitHub", name: "github", widget: "string", required: false}
+              - {label: "URL WhatsApp (format wa.me/… sans 00)", name: "whatsapp", widget: "string", required: false}
+
   - name: "portfolio"
     label: "Mon Portfolio"
     files:

@@ -57,22 +57,132 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// --- 3. EFFET MACHINE A ECRIRE (Typing Effect) ---
-const textArray = ["Full-Stack Analyst", "Data Analyst", "Développeur Python", "Spécialiste SQL", "Problem Solver"];
-const typingText = document.querySelector(".typing-text");
+// --- 3. PARAMETRES DU SITE (editables via le CMS : data/settings.json) ---
+// Tant que le fichier n'est pas chargé (ou s'il est absent), le contenu
+// statique du HTML reste affiché : le site fonctionne toujours.
 
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    // Pas d'animation pour les utilisateurs sensibles au mouvement
-    typingText.textContent = textArray[0];
-} else {
+// Transforme un texte échappé en HTML sûr, en tolérant le gras **texte**
+function richText(str) {
+    return escapeHTML(str).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+}
+
+// Normalise une liste CMS qui peut contenir des chaînes ["a"] ou des
+// objets [{role: "a"}] selon la version du widget
+function listOf(raw, key) {
+    return (raw || [])
+        .map(item => (typeof item === 'string' ? item : item && item[key]))
+        .filter(Boolean);
+}
+
+const settingsPromise = (async () => {
+    try {
+        const response = await fetch('./data/settings.json', { cache: 'no-cache' });
+        if (!response.ok) return null;
+        const s = await response.json();
+
+        if (s.seoTitle) {
+            document.title = s.seoTitle;
+            const ogTitle = document.getElementById('og-title');
+            if (ogTitle) ogTitle.setAttribute('content', s.seoTitle);
+        }
+        if (s.logoPrefix !== undefined) {
+            const el = document.getElementById('logo-prefix');
+            if (el) el.textContent = s.logoPrefix;
+            const fl = document.getElementById('footer-logo');
+            if (fl) fl.innerHTML = `${escapeHTML(s.logoPrefix)}<span>${escapeHTML(s.logoHighlight || '')}</span>`;
+        }
+        if (s.logoHighlight !== undefined) {
+            const el = document.getElementById('logo-highlight');
+            if (el) el.textContent = s.logoHighlight;
+        }
+
+        const hero = s.hero || {};
+        if (hero.greeting) {
+            const el = document.getElementById('hero-greeting');
+            if (el) el.textContent = hero.greeting;
+        }
+        if (hero.name) {
+            const el = document.getElementById('hero-name');
+            if (el) el.textContent = hero.name;
+        }
+        const roles = listOf(hero.roles, 'role');
+        if (roles.length) textArray = roles;
+        if (hero.subtitle) {
+            const el = document.getElementById('hero-subtitle');
+            if (el) el.textContent = hero.subtitle;
+        }
+
+        const about = s.about || {};
+        const paragraphs = listOf(about.paragraphs, 'paragraph');
+        const aboutText = document.getElementById('about-text');
+        if (paragraphs.length && aboutText) {
+            aboutText.innerHTML = paragraphs
+                .map(p => `<p>${richText(p)}</p>`)
+                .join('');
+        }
+
+        const stats = (about.stats || []).filter(st => st && st.label);
+        const statsGrid = document.getElementById('stats-grid');
+        if (stats.length && statsGrid) {
+            statsGrid.innerHTML = stats.map(st => `
+                <div class="stat-card">
+                    <h3 class="counter" data-target="${escapeHTML(String(st.value))}">0</h3>
+                    <p>${escapeHTML(st.label)}</p>
+                </div>
+            `).join('');
+        }
+
+        if (s.visionQuote) {
+            const el = document.getElementById('vision-quote');
+            if (el) el.textContent = s.visionQuote;
+        }
+
+        const c = s.contact || {};
+        const links = [];
+        if (c.email) links.push(`<a href="mailto:${escapeHTML(c.email)}" class="contact-item"><i class="fas fa-envelope" aria-hidden="true"></i> ${escapeHTML(c.email)}</a>`);
+        if (c.linkedin) links.push(`<a href="${escapeHTML(safeURL(c.linkedin))}" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>`);
+        if (c.github) links.push(`<a href="${escapeHTML(safeURL(c.github))}" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>`);
+        if (c.whatsapp) links.push(`<a href="${escapeHTML(safeURL(c.whatsapp))}" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>`);
+        const contactLinks = document.getElementById('contact-links');
+        if (links.length && contactLinks) contactLinks.innerHTML = links.join('');
+
+        const social = [];
+        if (c.linkedin) social.push(`<a href="${escapeHTML(safeURL(c.linkedin))}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>`);
+        if (c.github) social.push(`<a href="${escapeHTML(safeURL(c.github))}" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>`);
+        const footerSocial = document.getElementById('footer-social');
+        if (social.length && footerSocial) footerSocial.innerHTML = social.join('');
+
+        return s;
+    } catch (error) {
+        console.warn('Paramètres du site non chargés, contenu par défaut conservé :', error);
+        return null;
+    }
+})();
+
+// --- 4. EFFET MACHINE A ECRIRE (Typing Effect) ---
+// Les métiers peuvent être remplacés par ceux des paramètres du site CMS.
+let textArray = ["Full-Stack Analyst", "Data Analyst", "Développeur Python", "Spécialiste SQL", "Problem Solver"];
+const typingText = document.querySelector(".typing-text");
+let typingStarted = false;
+
+function startTyping() {
+    if (typingStarted || !typingText) return;
+    typingStarted = true;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        // Pas d'animation pour les utilisateurs sensibles au mouvement
+        typingText.textContent = textArray[0];
+        return;
+    }
+
     let textIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
 
-    function type() {
+    (function type() {
         const currentText = textArray[textIndex];
         if (isDeleting) {
-            typingText.textContent = currentText.substring(0, charIndex - 1);
+            typingText.textContent = currentText.substring(0, Math.max(0, charIndex - 1));
             charIndex--;
         } else {
             typingText.textContent = currentText.substring(0, charIndex + 1);
@@ -90,12 +200,15 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             typeSpeed = 500; // Pause avant le prochain mot
         }
         setTimeout(type, typeSpeed);
-    }
-
-    document.addEventListener("DOMContentLoaded", type);
+    })();
 }
 
-// --- 4. ANIMATIONS AU SCROLL (Intersection Observer) ---
+// On attend les paramètres du site (avec un délai maximum) pour que
+// l'animation utilise les métiers personnalisés dès le premier mot.
+Promise.race([settingsPromise, new Promise(resolve => setTimeout(resolve, 1500))])
+    .then(startTyping);
+
+// --- 5. ANIMATIONS AU SCROLL (Intersection Observer) ---
 const revealElements = document.querySelectorAll('.reveal');
 
 const revealOptions = {
@@ -119,7 +232,7 @@ const revealOnScroll = new IntersectionObserver(function(entries, observer) {
 
 revealElements.forEach(el => revealOnScroll.observe(el));
 
-// --- 5. COMPTEURS ANIMES ---
+// --- 6. COMPTEURS ANIMES ---
 let countersStarted = false;
 function startCounters() {
     if (countersStarted) return;
@@ -145,7 +258,7 @@ function startCounters() {
     });
 }
 
-// --- 6. GESTION DYNAMIQUE DES PROJETS (VIA DECAP CMS JSON) ---
+// --- 7. GESTION DYNAMIQUE DES PROJETS (VIA DECAP CMS JSON) ---
 
 // Échappe le texte avant de l'injecter en HTML, pour éviter toute injection
 // (XSS) si jamais une donnée du JSON contient des caractères HTML/JS.
@@ -187,7 +300,7 @@ const PLACEHOLDER_IMG = 'data:image/svg+xml,' + encodeURIComponent(
 async function fetchProjectsFromCMS() {
     try {
         // On va lire le fichier JSON généré par le CMS
-        const response = await fetch('./data/projects.json');
+        const response = await fetch('./data/projects.json', { cache: 'no-cache' });
         if (!response.ok) throw new Error("Fichier introuvable");
 
         const data = await response.json();
@@ -269,7 +382,7 @@ filterBtns.forEach(btn => {
     });
 });
 
-// --- 7. BOUTON RETOUR EN HAUT ---
+// --- 8. BOUTON RETOUR EN HAUT ---
 const backToTopBtn = document.getElementById("back-to-top");
 
 window.addEventListener("scroll", () => {
@@ -284,7 +397,7 @@ backToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// --- 8. PREVENIR LE RECHARGEMENT DU FORMULAIRE ---
+// --- 9. PREVENIR LE RECHARGEMENT DU FORMULAIRE ---
 // IMPORTANT : on cible le formulaire par sa structure, pas par un id qui n'existe pas.
 // L'ancien code utilisait getElementById('contact-form'), un id absent du HTML,
 // ce qui provoquait une erreur fatale et empêchait TOUT le code situé plus bas
@@ -349,14 +462,14 @@ if (contactForm) {
 }
 
 
-// --- 9. GESTION DYNAMIQUE DES CERTIFICATIONS (VIA CMS) ---
+// --- 10. GESTION DYNAMIQUE DES CERTIFICATIONS (VIA CMS) ---
 const timelineContainer = document.getElementById('timeline-container');
 
 async function fetchCertificationsFromCMS() {
     if(!timelineContainer) return;
 
     try {
-        const response = await fetch('./data/certifications.json');
+        const response = await fetch('./data/certifications.json', { cache: 'no-cache' });
         if (!response.ok) throw new Error("Fichier certifications introuvable");
         
         const data = await response.json();
@@ -400,7 +513,7 @@ async function fetchCertificationsFromCMS() {
 // On lance la fonction au démarrage
 fetchCertificationsFromCMS();
 
-// --- 10. SURBRILLANCE DU LIEN ACTIF DANS LA NAVIGATION (Scrollspy) ---
+// --- 11. SURBRILLANCE DU LIEN ACTIF DANS LA NAVIGATION (Scrollspy) ---
 const spySections = document.querySelectorAll('main section[id]');
 const navAnchors = document.querySelectorAll('.nav-links a');
 
@@ -415,6 +528,6 @@ const navSpy = new IntersectionObserver((entries) => {
 
 spySections.forEach(s => navSpy.observe(s));
 
-// --- 11. ANNÉE DYNAMIQUE DU FOOTER ---
+// --- 12. ANNÉE DYNAMIQUE DU FOOTER ---
 const footerYear = document.getElementById('footer-year');
 if (footerYear) footerYear.textContent = new Date().getFullYear();

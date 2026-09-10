@@ -10,11 +10,11 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="author" content="Kpatchil Urbain">
     <meta name="theme-color" content="#0a0f1a">
-    <title>Kpatchil Urbain | Full-Stack Analyst</title>
+    <title id="page-title">Kpatchil Urbain | Full-Stack Analyst</title>
 
     <!-- Open Graph / Twitter : aperçu soigné lors du partage du lien -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Kpatchil Urbain | Full-Stack Analyst">
+    <meta property="og:title" id="og-title" content="Kpatchil Urbain | Full-Stack Analyst">
     <meta property="og:description" content="Portfolio de Kpatchil Urbain, Full-Stack Analyst spécialisé en Data, Web et Cybersécurité.">
     <meta property="og:url" content="https://maskdataec.github.io/MonPortofolio/">
     <meta property="og:image" content="https://maskdataec.github.io/MonPortofolio/assets/uploads/portrait-urbain-kpatchil.jpg">
@@ -41,7 +41,7 @@
     <!-- NAVIGATION -->
     <header id="navbar">
         <nav class="container">
-            <a href="#" class="logo">F-S <span>Analyst.</span></a>
+            <a href="#" class="logo"><span id="logo-prefix">F-S </span><span id="logo-highlight">Analyst.</span></a>
             <ul class="nav-links">
                 <li><a href="#home">Accueil</a></li>
                 <li><a href="#about">À propos</a></li>
@@ -61,9 +61,9 @@
         <!-- HERO SECTION -->
         <section id="home" class="hero container">
             <div class="hero-content reveal">
-                <p class="greeting">Bonjour, je suis <strong>Kpatchil Urbain</strong></p>
+                <p class="greeting"><span id="hero-greeting">Bonjour, je suis</span> <strong id="hero-name">Kpatchil Urbain</strong></p>
                 <h1 aria-label="Full-Stack Analyst"><span class="typing-text"></span><span class="cursor" aria-hidden="true">&nbsp;</span></h1>
-                <p class="subtitle">"J'analyse les données, conçois des solutions et développe des outils numériques pour transformer les besoins en résultats concrets."</p>
+                <p class="subtitle" id="hero-subtitle">"J'analyse les données, conçois des solutions et développe des outils numériques pour transformer les besoins en résultats concrets."</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">Voir mes projets</a>
                     <a href="assets/uploads/cv-kpatchil-urbain.pdf" download="CV-Kpatchil-Urbain.pdf" class="btn btn-outline">Télécharger mon CV</a>
@@ -79,11 +79,11 @@
             <div class="container">
                 <h2 class="section-title reveal">À propos de moi</h2>
                 <div class="about-grid">
-                    <div class="about-text reveal">
+                    <div class="about-text reveal" id="about-text">
                         <p>Passionné par l'intersection entre le <strong>business, la donnée et la technologie</strong>, j'interviens sur l'ensemble de la chaîne de valeur d'un projet numérique. Mon approche est résolument orientée résultats.</p>
                         <p>Grâce à mon parcours hybride (Économie, Data Science, Web, Cybersécurité et ALX Ventures), je ne me contente pas de coder ou d'analyser : je m'assure que chaque solution apporte une véritable valeur ajoutée métier.</p>
                     </div>
-                    <div class="stats-grid reveal">
+                    <div class="stats-grid reveal" id="stats-grid">
                         <div class="stat-card">
                             <h3 class="counter" data-target="15">0</h3>
                             <p>Projets Réalisés</p>
@@ -169,9 +169,7 @@
         <section id="vision" class="vision section bg-alt text-center">
             <div class="container reveal">
                 <i class="fas fa-quote-left quote-icon"></i>
-                <blockquote>
-                    "Je souhaite évoluer comme Full-Stack Analyst capable de relier les données, les technologies et les besoins métier afin de créer des solutions à forte valeur ajoutée."
-                </blockquote>
+                <blockquote id="vision-quote">"Je souhaite évoluer comme Full-Stack Analyst capable de relier les données, les technologies et les besoins métier afin de créer des solutions à forte valeur ajoutée."</blockquote>
             </div>
         </section>
 
@@ -183,7 +181,7 @@
                     <h3>Discutons de votre prochain projet</h3>
                     <p>Que ce soit pour analyser vos données, créer un outil sur mesure ou optimiser vos processus, je suis à votre écoute.</p>
                     
-                    <div class="contact-links mt-2">
+                    <div class="contact-links mt-2" id="contact-links">
                         <a href="mailto:kpatchilurbain36@gmail.com" class="contact-item"><i class="fas fa-envelope" aria-hidden="true"></i> kpatchilurbain36@gmail.com</a>
                         <a href="https://linkedin.com/in/urbainkpatchil" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
                         <a href="https://github.com/MaskDataEc" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
@@ -229,9 +227,9 @@
     <!-- FOOTER -->
     <footer>
         <div class="container footer-content">
-            <div class="footer-logo">F-S <span>Analyst.</span></div>
+            <div class="footer-logo" id="footer-logo">F-S <span>Analyst.</span></div>
             <p>&copy; <span id="footer-year">2026</span> Kpatchil Urbain. Tous droits réservés.</p>
-            <div class="social-icons">
+            <div class="social-icons" id="footer-social">
                 <a href="https://linkedin.com/in/urbainkpatchil" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/MaskDataEc" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>

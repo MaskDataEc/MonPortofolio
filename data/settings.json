@@ -1,0 +1,62 @@
+{
+  "seoTitle": "Kpatchil Urbain | Full-Stack Analyst",
+  "logoPrefix": "F-S ",
+  "logoHighlight": "Analyst.",
+  "hero": {
+    "greeting": "Bonjour, je suis",
+    "name": "Kpatchil Urbain",
+    "roles": [
+      {
+        "role": "Full-Stack Analyst"
+      },
+      {
+        "role": "Data Analyst"
+      },
+      {
+        "role": "Développeur Python"
+      },
+      {
+        "role": "Spécialiste SQL"
+      },
+      {
+        "role": "Problem Solver"
+      }
+    ],
+    "subtitle": "\"J'analyse les données, conçois des solutions et développe des outils numériques pour transformer les besoins en résultats concrets.\""
+  },
+  "about": {
+    "paragraphs": [
+      {
+        "paragraph": "Passionné par l'intersection entre le **business, la donnée et la technologie**, j'interviens sur l'ensemble de la chaîne de valeur d'un projet numérique. Mon approche est résolument orientée résultats."
+      },
+      {
+        "paragraph": "Grâce à mon parcours hybride (Économie, Data Science, Web, Cybersécurité et ALX Ventures), je ne me contente pas de coder ou d'analyser : je m'assure que chaque solution apporte une véritable valeur ajoutée métier."
+      }
+    ],
+    "stats": [
+      {
+        "value": 15,
+        "label": "Projets Réalisés"
+      },
+      {
+        "value": 5,
+        "label": "Certifications"
+      },
+      {
+        "value": 10,
+        "label": "Technologies"
+      },
+      {
+        "value": 2,
+        "label": "Années d'Expérience"
+      }
+    ]
+  },
+  "visionQuote": "\"Je souhaite évoluer comme Full-Stack Analyst capable de relier les données, les technologies et les besoins métier afin de créer des solutions à forte valeur ajoutée.\"",
+  "contact": {
+    "email": "kpatchilurbain36@gmail.com",
+    "linkedin": "https://linkedin.com/in/urbainkpatchil",
+    "github": "https://github.com/MaskDataEc",
+    "whatsapp": "https://wa.me/22870901801"
+  }
+}

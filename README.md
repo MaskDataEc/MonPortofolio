@@ -11,6 +11,22 @@ Le contenu des sections "Projets" et "Parcours & Certifications" est géré
 via **Decap CMS** (`/admin/`), qui écrit directement dans `data/projects.json`
 et `data/certifications.json` sur le dépôt GitHub.
 
+## Modifier le site sans coder (CMS)
+
+Va sur **`https://maskdataec.github.io/MonPortofolio/admin/`**, connecte-toi
+avec ton compte GitHub (via le fournisseur OAuth déployé sur Cloudflare).
+Trois collections :
+
+1. **Paramètres du site** — titre de l'onglet, logo, accroche du hero,
+   métiers de l'animation, phrase de présentation, paragraphes « À propos »,
+   chiffres clés, citation et coordonnées (écrit dans `data/settings.json`).
+2. **Mes Projets** — ajoute/modifie/supprime des projets (image, description,
+   technologies, liens).
+3. **Mes Certifications** — parcours et preuves téléchargeables.
+
+Après « Publier », le site en ligne est à jour en 1 à 2 minutes (le temps de
+la régénération GitHub Pages).
+
 ## Fonctionnalités
 
 - Mode sombre / clair (préférence système par défaut, choix mémorisé)
