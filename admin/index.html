@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow">
     <!-- CSP adaptée à Sveltia CMS : script depuis unpkg (version figée + SRI),
-         API GitHub pour le backend, styles inline de l'application -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src * data: blob:; media-src * data: blob:; connect-src 'self' https://api.github.com https://github.com https://*.githubusercontent.com https://unpkg.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self';">
+         API GitHub pour le backend, polices UI depuis cdn.jsdelivr.net
+         (fontsource : Source Sans 3, Noto Mono, Material Symbols) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src * data: blob:; media-src * data: blob:; connect-src 'self' https://api.github.com https://github.com https://*.githubusercontent.com https://unpkg.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self';">
     <title>Administration du Portfolio</title>
   </head>
   <body>

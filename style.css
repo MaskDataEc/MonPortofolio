@@ -52,6 +52,7 @@ body {
     color: var(--color-text);
     line-height: 1.6;
     transition: background-color var(--transition), color var(--transition);
+    -webkit-tap-highlight-color: transparent;
 }
 
 h1, h2, h3, h4 {
@@ -504,6 +505,8 @@ input, textarea {
     background-color: var(--color-bg-alt);
     color: var(--color-text);
     font-family: var(--font-body);
+    /* 16px minimum : évite le zoom automatique iOS au focus du champ */
+    font-size: 1rem;
 }
 
 input:focus, textarea:focus {
@@ -641,14 +644,52 @@ textarea:focus-visible {
     .reveal { opacity: 1; transform: none; }
 }
 
-/* RESPONSIVE */
+/* HERO : léger dégradé d'ambiance derrière le contenu */
+.hero {
+    background:
+        radial-gradient(circle at 85% 20%, rgba(6, 182, 212, 0.08), transparent 45%),
+        radial-gradient(circle at 10% 85%, rgba(6, 182, 212, 0.06), transparent 40%);
+}
+
+/* Sur écrans tactiles, pas d'effet de survol parasite */
+@media (hover: none) {
+    .project-card:hover, .skill-card:hover, .btn-primary:hover { transform: none; }
+}
+
+/* NAVBAR : ombre renforcée quand on a défilé (géré en JS) */
+header.scrolled { box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12); }
+
+/* RESPONSIVE TABLETTE */
 @media (max-width: 900px) {
     .hero, .about-grid, .contact-grid { flex-direction: column; grid-template-columns: 1fr; text-align: center; }
     .hero-buttons { justify-content: center; }
     .hero-image img { width: 250px; height: 250px; }
+    .subtitle { margin-left: auto; margin-right: auto; }
 }
 
+/* RESPONSIVE MOBILE */
 @media (max-width: 768px) {
+    /* Sections plus compactes */
+    .section { padding: 64px 0; }
+    .vision { padding: 56px 0; }
+    .section-title { font-size: 1.75rem; margin-bottom: 2rem; }
+
+    /* Titre animé : hauteur naturelle, pas de grand vide */
+    .hero h1 {
+        font-size: 1.9rem;
+        min-height: 2.6em;
+        justify-content: center;
+    }
+
+    .hero { padding-top: 100px; gap: 36px; }
+
+    .subtitle { font-size: 1rem; }
+
+    /* Boutons pleine largeur, empilés */
+    .hero-buttons { flex-direction: column; gap: 12px; width: 100%; max-width: 340px; margin: 0 auto; }
+    .hero-buttons .btn { width: 100%; }
+
+    /* Menu mobile : plein écran confortable */
     .nav-links {
         position: fixed;
         top: 80px;
@@ -657,12 +698,37 @@ textarea:focus-visible {
         background-color: var(--color-bg-alt);
         width: 100%;
         text-align: center;
-        padding: 20px 0;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-        transition: 0.3s;
+        padding: 24px 0 32px;
+        box-shadow: 0 16px 24px rgba(0,0,0,0.12);
+        transition: right 0.3s ease;
     }
     .nav-links.active { right: 0; }
+    .nav-links li { margin: 4px 0; }
+    .nav-links a { display: block; padding: 12px 24px; font-size: 1.05rem; }
+    .nav-links a.active::after { display: none; }
+    .nav-links a.active { background-color: rgba(6, 182, 212, 0.1); }
     .mobile-menu-btn { display: block; }
+
+    /* Grilles plus resserrées */
+    .skills-grid { gap: 18px; }
+    .projects-container { gap: 18px; grid-template-columns: 1fr; }
+    .stats-grid { gap: 12px; }
+    .stat-card { padding: 22px 12px; }
+    .stat-card h3 { font-size: 2rem; }
+
+    /* Timeline : ligne plus proche du contenu */
+    .timeline-item { padding-left: 48px; margin-bottom: 28px; }
+    .timeline-container::after { left: 14px; }
+    .timeline-dot { left: 7px; }
+    .timeline-content { padding: 18px; }
+
+    blockquote { font-size: 1.15rem; }
+
+    /* Contact */
+    .contact-item { font-size: 1rem; }
+
+    /* Bouton retour en haut moins intrusif */
+    #back-to-top { bottom: 18px; right: 18px; width: 44px; height: 44px; }
 }
 
 /* Utilitaire : élément masqué visuellement et pour les lecteurs d'écran,

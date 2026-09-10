@@ -130,6 +130,13 @@ const settingsPromise = (async () => {
                     <p>${escapeHTML(st.label)}</p>
                 </div>
             `).join('');
+            // Si la grille était déjà visible au chargement, les compteurs ont
+            // pu démarrer sur les cartes d'origine avant ce remplacement :
+            // on les relance sur les nouvelles cartes.
+            if (typeof countersStarted !== 'undefined' && countersStarted) {
+                countersStarted = false;
+                startCounters();
+            }
         }
 
         if (s.visionQuote) {
@@ -382,16 +389,15 @@ filterBtns.forEach(btn => {
     });
 });
 
-// --- 8. BOUTON RETOUR EN HAUT ---
+// --- 8. BOUTON RETOUR EN HAUT + OMBRE DE LA NAVBAR AU DÉFILEMENT ---
 const backToTopBtn = document.getElementById("back-to-top");
+const navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-        backToTopBtn.style.display = "block";
-    } else {
-        backToTopBtn.style.display = "none";
-    }
-});
+    const scrolled = window.scrollY > 300;
+    backToTopBtn.style.display = scrolled ? "block" : "none";
+    navbar.classList.toggle("scrolled", window.scrollY > 10);
+}, { passive: true });
 
 backToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
