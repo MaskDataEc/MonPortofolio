@@ -1,36 +1,36 @@
 {
-  "seoTitle": "Kpatchil Urbain | Full-Stack Analyst",
-  "logoPrefix": "F-S ",
+  "seoTitle": "Kpatchil Urbain | Data Analyst & Data Science",
+  "logoPrefix": "Data ",
   "logoHighlight": "Analyst.",
   "hero": {
     "greeting": "Bonjour, je suis",
     "name": "Kpatchil Urbain",
     "roles": [
       {
-        "role": "Full-Stack Analyst"
-      },
-      {
         "role": "Data Analyst"
       },
       {
-        "role": "Développeur Python"
+        "role": "Analyste de Données"
       },
       {
-        "role": "Spécialiste SQL"
+        "role": "Data Science"
       },
       {
-        "role": "Problem Solver"
+        "role": "Python & SQL"
+      },
+      {
+        "role": "Data Storyteller"
       }
     ],
-    "subtitle": "\"J'analyse les données, conçois des solutions et développe des outils numériques pour transformer les besoins en résultats concrets.\""
+    "subtitle": "\"Je transforme les données en décisions : collecte, nettoyage, analyse et visualisation pour révéler ce que les chiffres ont à dire.\""
   },
   "about": {
     "paragraphs": [
       {
-        "paragraph": "Passionné par l'intersection entre le **business, la donnée et la technologie**, j'interviens sur l'ensemble de la chaîne de valeur d'un projet numérique. Mon approche est résolument orientée résultats."
+        "paragraph": "Passionné par **l'analyse de données et la data science**, je transforme des chiffres bruts en insights actionnables : nettoyage des données, analyse exploratoire, visualisation et reporting au service de décisions métier concrètes."
       },
       {
-        "paragraph": "Grâce à mon parcours hybride (Économie, Data Science, Web, Cybersécurité et ALX Ventures), je ne me contente pas de coder ou d'analyser : je m'assure que chaque solution apporte une véritable valeur ajoutée métier."
+        "paragraph": "Mon parcours hybride (Économie, Data Science, ALX Ventures) et mes compétences en développement web me permettent d'aller plus loin : présenter mes analyses dans des outils interactifs et collaborer efficacement avec tous les profils, techniques comme métier."
       }
     ],
     "stats": [
@@ -52,7 +52,7 @@
       }
     ]
   },
-  "visionQuote": "\"Je souhaite évoluer comme Full-Stack Analyst capable de relier les données, les technologies et les besoins métier afin de créer des solutions à forte valeur ajoutée.\"",
+  "visionQuote": "\"Mon ambition : mettre la donnée au service de décisions plus justes, plus rapides et plus utiles — de l'analyse brute au storytelling qui fait agir.\"",
   "contact": {
     "email": "kpatchilurbain36@gmail.com",
     "linkedin": "https://linkedin.com/in/urbainkpatchil",
