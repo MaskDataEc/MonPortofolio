@@ -292,6 +292,28 @@ function safeURL(url) {
     }
 }
 
+// Racine du site : sur GitHub Pages projet, le site vit dans un sous-chemin
+// (ex : /MonPortofolio/). Résoudre les chemins relatifs (« assets/... »)
+// contre cette racine garantit des liens de preuve valides quel que soit
+// l'URL visité (avec ou sans slash final, depuis /admin/, etc.).
+const SITE_BASE = (() => {
+    const chemin = window.location.pathname;
+    if (window.location.hostname.endsWith('.github.io') && chemin !== '/') {
+        const segment = chemin.replace(/^\/([^/]+).*$/, '$1');
+        return `/${segment}/`;
+    }
+    return '/'; // serveur local à la racine du dépôt
+})();
+
+// Transforme un chemin relatif en URL absolue depuis la racine du site.
+// Les chemins déjà absolus (« /MonPortofolio/... ») ou complets (http…)
+// passent inchangés.
+function siteURL(path) {
+    if (!path) return '';
+    if (/^(https?:)?\/\//i.test(path) || path.startsWith('/')) return path;
+    return SITE_BASE + path;
+}
+
 const projectsContainer = document.getElementById('projects-container');
 const filterBtns = document.querySelectorAll('.filter-btn');
 let globalProjectsData = [];
@@ -353,7 +375,7 @@ function displayProjects(filterType) {
     filteredProjects.forEach(project => {
         // Le CMS nous donne "Python, Pandas", on le transforme en tableau
         const techArray = project.tech ? project.tech.split(',').map(t => t.trim()) : [];
-        const imageUrl = safeURL(project.image) || PLACEHOLDER_IMG;
+        const imageUrl = safeURL(siteURL(project.image)) || PLACEHOLDER_IMG;
         const githubLink = safeURL(project.githubLink);
         const demoLink = safeURL(project.demoLink);
 
@@ -485,7 +507,7 @@ async function fetchCertificationsFromCMS() {
 
         certifications.forEach(cert => {
             // S'il y a un fichier (PDF ou image), on crée le bouton
-            const proofUrl = safeURL(cert.proofFile);
+            const proofUrl = safeURL(siteURL(cert.proofFile));
             const proofButton = proofUrl ? `
                 <a href="${escapeHTML(proofUrl)}" target="_blank" rel="noopener noreferrer" class="btn-cert">
                     <i class="fas fa-file-download"></i> Voir la preuve
