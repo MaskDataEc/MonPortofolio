@@ -1,9 +1,51 @@
 {
   "items": [
     {
-      "title": "Professional Foundations Certificate",
+      "title": "Machine Learning — ALX",
+      "year": "2026",
+      "proofFile": "assets/uploads/alx-machine-learning.png",
+      "description": "Programme de 15 semaines en Machine Learning (ALX)"
+    },
+    {
+      "title": "Data Science — ALX",
+      "year": "2026",
+      "proofFile": "assets/uploads/alx-data-science.png",
+      "description": "Diplôme du programme Data Science après validation de tous les cours et évaluations (ALX)"
+    },
+    {
+      "title": "AI Literacy — IBM SkillsBuild",
+      "year": "2026",
+      "proofFile": "assets/uploads/ibm-ai-literacy-badge.pdf",
+      "description": "Badge de littératie en intelligence artificielle, vérifiable sur Credly"
+    },
+    {
+      "title": "Python Programming — ALX",
+      "year": "2026",
+      "proofFile": "assets/uploads/alx-python-programming.png",
+      "description": "Formation de 8 semaines en programmation Python (ALX)"
+    },
+    {
+      "title": "Introduction à la Cybersécurité — Cisco",
+      "year": "2026",
+      "proofFile": "assets/uploads/cisco-introduction-cybersecurite.pdf",
+      "description": "Cisco Networking Academy, Network Training Academy (NTA)"
+    },
+    {
+      "title": "Founder Academy — ALX Ventures",
+      "year": "2026",
+      "proofFile": "assets/uploads/alx-founder-academy.png",
+      "description": "Programme d'entrepreneuriat ALX Ventures, soutenu par la Mastercard Foundation"
+    },
+    {
+      "title": "Data Analytics — ALX",
       "year": "2025",
-      "proofFile": "assets/uploads/89-professional-foundations-certificate-urbain-kpatchil.png",
+      "proofFile": "assets/uploads/alx-data-analytics.png",
+      "description": "Programme de 6 mois en Data Analytics avec Professional Development Skills for the Digital Age (ALX)"
+    },
+    {
+      "title": "Professional Foundations — ALX",
+      "year": "2025",
+      "proofFile": "assets/uploads/alx-professional-foundations.png",
       "description": "Professional Development Skills for the Digital Age (ALX)"
     }
   ]
