@@ -1,0 +1,23 @@
+ANALYSE DES INDICATEURS SOCIO-ÉCONOMIQUES DU TOGO (2000–2023)
+============================================================================
+Sources : API Banque Mondiale (7 indicateurs)
+Après nettoyage : 168 observations, 7 indicateurs
+
+VARIATIONS ET TAUX DE CROISSANCE MOYEN ANNUEL (TCMA)
+----------------------------------------------------------------------------
+Accès à l'électricité (%)                      2000 : 17          → 2023 : 59          variation   +248.2 %   TCMA  +5.57 %/an
+Chômage (%)                                    2000 : 4           → 2023 : 2           variation    -53.3 %   TCMA  -3.26 %/an
+Internet, utilisateurs (%)                     2000 : 1           → 2023 : 38          variation  +4596.3 %   TCMA +18.22 %/an
+Mobile (abonnements / 100 hab.)                2000 : 1           → 2023 : 76          variation  +7691.3 %   TCMA +20.85 %/an
+Mortalité < 5 ans (pour 1000 naissances)       2000 : 119         → 2023 : 58          variation    -51.3 %   TCMA  -3.08 %/an
+PIB / habitant, PPA ($ int.)                   2000 : 2 322       → 2023 : 3 216       variation    +38.5 %   TCMA  +1.43 %/an
+Population totale                              2000 : 4 783 722   → 2023 : 8 223 850   variation    +71.9 %   TCMA  +2.38 %/an
+
+CORRÉLATIONS LES PLUS MARQUÉES (Pearson)
+----------------------------------------------------------------------------
+r = -1.00   Mortalité < 5 ans (pour 1000 naissances)  ↔  Population totale
+r = +0.99   Accès à l'électricité (%)  ↔  Population totale
+r = -0.99   Accès à l'électricité (%)  ↔  Mortalité < 5 ans (pour 1000 naissances)
+r = +0.98   Mobile (abonnements / 100 hab.)  ↔  Population totale
+r = -0.97   Mobile (abonnements / 100 hab.)  ↔  Mortalité < 5 ans (pour 1000 naissances)
+r = +0.97   Accès à l'électricité (%)  ↔  Mobile (abonnements / 100 hab.)

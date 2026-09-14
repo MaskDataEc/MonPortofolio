@@ -1,0 +1,169 @@
+annee,indicateur,valeur,famille
+2000,Accès à l'électricité (%),17.0,Infrastructure
+2001,Accès à l'électricité (%),19.6,Infrastructure
+2002,Accès à l'électricité (%),21.3,Infrastructure
+2003,Accès à l'électricité (%),23.0,Infrastructure
+2004,Accès à l'électricité (%),24.8,Infrastructure
+2005,Accès à l'électricité (%),26.5,Infrastructure
+2006,Accès à l'électricité (%),27.9,Infrastructure
+2007,Accès à l'électricité (%),30.0,Infrastructure
+2008,Accès à l'électricité (%),31.8,Infrastructure
+2009,Accès à l'électricité (%),33.7,Infrastructure
+2010,Accès à l'électricité (%),30.8,Infrastructure
+2011,Accès à l'électricité (%),39.7,Infrastructure
+2012,Accès à l'électricité (%),39.1,Infrastructure
+2013,Accès à l'électricité (%),41.0,Infrastructure
+2014,Accès à l'électricité (%),45.7,Infrastructure
+2015,Accès à l'électricité (%),44.7,Infrastructure
+2016,Accès à l'électricité (%),46.8,Infrastructure
+2017,Accès à l'électricité (%),48.0,Infrastructure
+2018,Accès à l'électricité (%),50.0,Infrastructure
+2019,Accès à l'électricité (%),52.5,Infrastructure
+2020,Accès à l'électricité (%),54.1,Infrastructure
+2021,Accès à l'électricité (%),55.7,Infrastructure
+2022,Accès à l'électricité (%),57.2,Infrastructure
+2023,Accès à l'électricité (%),59.2,Infrastructure
+2000,Chômage (%),4.162,Économie
+2001,Chômage (%),4.108,Économie
+2002,Chômage (%),4.087,Économie
+2003,Chômage (%),3.957,Économie
+2004,Chômage (%),3.992,Économie
+2005,Chômage (%),4.149,Économie
+2006,Chômage (%),4.229,Économie
+2007,Chômage (%),3.822,Économie
+2008,Chômage (%),3.279,Économie
+2009,Chômage (%),2.847,Économie
+2010,Chômage (%),2.379,Économie
+2011,Chômage (%),1.982,Économie
+2012,Chômage (%),2.029,Économie
+2013,Chômage (%),2.084,Économie
+2014,Chômage (%),2.141,Économie
+2015,Chômage (%),2.204,Économie
+2016,Chômage (%),2.968,Économie
+2017,Chômage (%),3.744,Économie
+2018,Chômage (%),2.9,Économie
+2019,Chômage (%),2.036,Économie
+2020,Chômage (%),2.231,Économie
+2021,Chômage (%),2.344,Économie
+2022,Chômage (%),1.965,Économie
+2023,Chômage (%),1.942,Économie
+2000,"Internet, utilisateurs (%)",0.8,Numérique
+2001,"Internet, utilisateurs (%)",0.9,Numérique
+2002,"Internet, utilisateurs (%)",1.0,Numérique
+2003,"Internet, utilisateurs (%)",1.2,Numérique
+2004,"Internet, utilisateurs (%)",1.5,Numérique
+2005,"Internet, utilisateurs (%)",1.799999952,Numérique
+2006,"Internet, utilisateurs (%)",2.0,Numérique
+2007,"Internet, utilisateurs (%)",2.200000048,Numérique
+2008,"Internet, utilisateurs (%)",2.400000095,Numérique
+2009,"Internet, utilisateurs (%)",2.599999905,Numérique
+2010,"Internet, utilisateurs (%)",3.0,Numérique
+2011,"Internet, utilisateurs (%)",3.5,Numérique
+2012,"Internet, utilisateurs (%)",4.0,Numérique
+2013,"Internet, utilisateurs (%)",4.5,Numérique
+2014,"Internet, utilisateurs (%)",5.699999809,Numérique
+2015,"Internet, utilisateurs (%)",7.119999886,Numérique
+2016,"Internet, utilisateurs (%)",11.31000042,Numérique
+2017,"Internet, utilisateurs (%)",12.3602249692905,Numérique
+2018,"Internet, utilisateurs (%)",15.5,Numérique
+2019,"Internet, utilisateurs (%)",20.72730064,Numérique
+2020,"Internet, utilisateurs (%)",29.02370071,Numérique
+2021,"Internet, utilisateurs (%)",30.33839989,Numérique
+2022,"Internet, utilisateurs (%)",35.60749817,Numérique
+2023,"Internet, utilisateurs (%)",37.57020187,Numérique
+2000,Mobile (abonnements / 100 hab.),0.97275564358778,Numérique
+2001,Mobile (abonnements / 100 hab.),1.80013499117555,Numérique
+2002,Mobile (abonnements / 100 hab.),3.05061225424761,Numérique
+2003,Mobile (abonnements / 100 hab.),4.38771023998378,Numérique
+2004,Mobile (abonnements / 100 hab.),5.83805025815816,Numérique
+2005,Mobile (abonnements / 100 hab.),7.41937343863111,Numérique
+2006,Mobile (abonnements / 100 hab.),11.7790568369439,Numérique
+2007,Mobile (abonnements / 100 hab.),19.2348550759298,Numérique
+2008,Mobile (abonnements / 100 hab.),24.3301576494957,Numérique
+2009,Mobile (abonnements / 100 hab.),33.384906435038,Numérique
+2010,Mobile (abonnements / 100 hab.),38.6520343582485,Numérique
+2011,Mobile (abonnements / 100 hab.),38.9697843149559,Numérique
+2012,Mobile (abonnements / 100 hab.),46.6464180614517,Numérique
+2013,Mobile (abonnements / 100 hab.),58.5138554393817,Numérique
+2014,Mobile (abonnements / 100 hab.),60.4368580586019,Numérique
+2015,Mobile (abonnements / 100 hab.),63.3574638254671,Numérique
+2016,Mobile (abonnements / 100 hab.),70.0588130571426,Numérique
+2017,Mobile (abonnements / 100 hab.),75.3357270694068,Numérique
+2018,Mobile (abonnements / 100 hab.),74.3997114343066,Numérique
+2019,Mobile (abonnements / 100 hab.),73.7224727486533,Numérique
+2020,Mobile (abonnements / 100 hab.),75.164019137873,Numérique
+2021,Mobile (abonnements / 100 hab.),70.4496733018494,Numérique
+2022,Mobile (abonnements / 100 hab.),72.2147547047011,Numérique
+2023,Mobile (abonnements / 100 hab.),75.7906769713952,Numérique
+2000,Mortalité < 5 ans (pour 1000 naissances),119.2,Santé
+2001,Mortalité < 5 ans (pour 1000 naissances),115.7,Santé
+2002,Mortalité < 5 ans (pour 1000 naissances),112.2,Santé
+2003,Mortalité < 5 ans (pour 1000 naissances),108.8,Santé
+2004,Mortalité < 5 ans (pour 1000 naissances),105.5,Santé
+2005,Mortalité < 5 ans (pour 1000 naissances),102.4,Santé
+2006,Mortalité < 5 ans (pour 1000 naissances),99.3,Santé
+2007,Mortalité < 5 ans (pour 1000 naissances),96.5,Santé
+2008,Mortalité < 5 ans (pour 1000 naissances),93.7,Santé
+2009,Mortalité < 5 ans (pour 1000 naissances),90.9,Santé
+2010,Mortalité < 5 ans (pour 1000 naissances),88.3,Santé
+2011,Mortalité < 5 ans (pour 1000 naissances),85.6,Santé
+2012,Mortalité < 5 ans (pour 1000 naissances),82.9,Santé
+2013,Mortalité < 5 ans (pour 1000 naissances),80.2,Santé
+2014,Mortalité < 5 ans (pour 1000 naissances),77.7,Santé
+2015,Mortalité < 5 ans (pour 1000 naissances),75.2,Santé
+2016,Mortalité < 5 ans (pour 1000 naissances),72.8,Santé
+2017,Mortalité < 5 ans (pour 1000 naissances),70.4,Santé
+2018,Mortalité < 5 ans (pour 1000 naissances),68.1,Santé
+2019,Mortalité < 5 ans (pour 1000 naissances),66.0,Santé
+2020,Mortalité < 5 ans (pour 1000 naissances),63.9,Santé
+2021,Mortalité < 5 ans (pour 1000 naissances),62.0,Santé
+2022,Mortalité < 5 ans (pour 1000 naissances),60.0,Santé
+2023,Mortalité < 5 ans (pour 1000 naissances),58.1,Santé
+2000,"PIB / habitant, PPA ($ int.)",2321.9504188468,Économie
+2001,"PIB / habitant, PPA ($ int.)",2283.5849230071,Économie
+2002,"PIB / habitant, PPA ($ int.)",2312.96463035074,Économie
+2003,"PIB / habitant, PPA ($ int.)",2407.5857838237,Économie
+2004,"PIB / habitant, PPA ($ int.)",2326.60102463281,Économie
+2005,"PIB / habitant, PPA ($ int.)",2164.01599552728,Économie
+2006,"PIB / habitant, PPA ($ int.)",2158.94393995769,Économie
+2007,"PIB / habitant, PPA ($ int.)",2067.21836135015,Économie
+2008,"PIB / habitant, PPA ($ int.)",2082.64201553182,Économie
+2009,"PIB / habitant, PPA ($ int.)",2126.4413192509,Économie
+2010,"PIB / habitant, PPA ($ int.)",2181.59889262038,Économie
+2011,"PIB / habitant, PPA ($ int.)",2246.56204522679,Économie
+2012,"PIB / habitant, PPA ($ int.)",2333.19276737886,Économie
+2013,"PIB / habitant, PPA ($ int.)",2416.37805101152,Économie
+2014,"PIB / habitant, PPA ($ int.)",2501.43253092917,Économie
+2015,"PIB / habitant, PPA ($ int.)",2588.27260980499,Économie
+2016,"PIB / habitant, PPA ($ int.)",2648.90084835076,Économie
+2017,"PIB / habitant, PPA ($ int.)",2708.61122396846,Économie
+2018,"PIB / habitant, PPA ($ int.)",2787.56398409759,Économie
+2019,"PIB / habitant, PPA ($ int.)",2862.62661160331,Économie
+2020,"PIB / habitant, PPA ($ int.)",2861.29796240513,Économie
+2021,"PIB / habitant, PPA ($ int.)",2952.09730066985,Économie
+2022,"PIB / habitant, PPA ($ int.)",3086.40878742334,Économie
+2023,"PIB / habitant, PPA ($ int.)",3215.82300022488,Économie
+2000,Population totale,4783722.0,Démographie
+2001,Population totale,4904144.0,Démographie
+2002,Population totale,5027130.0,Démographie
+2003,Population totale,5154112.0,Démographie
+2004,Population totale,5281320.0,Démographie
+2005,Population totale,5413154.0,Démographie
+2006,Population totale,5569664.0,Démographie
+2007,Population totale,5748443.0,Démographie
+2008,Population totale,5936138.0,Démographie
+2009,Population totale,6130946.0,Démographie
+2010,Population totale,6325788.0,Démographie
+2011,Population totale,6500582.0,Démographie
+2012,Population totale,6653718.0,Démographie
+2013,Population totale,6798848.0,Démographie
+2014,Population totale,6937644.0,Démographie
+2015,Population totale,7071502.0,Démographie
+2016,Population totale,7200884.0,Démographie
+2017,Population totale,7324386.0,Démographie
+2018,Population totale,7458206.0,Démographie
+2019,Population totale,7619925.0,Démographie
+2020,Population totale,7788054.0,Démographie
+2021,Population totale,7936176.0,Démographie
+2022,Population totale,8068616.0,Démographie
+2023,Population totale,8223850.0,Démographie
