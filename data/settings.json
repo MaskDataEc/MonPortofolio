@@ -1,36 +1,36 @@
 {
-  "seoTitle": "Kpatchil Urbain | Data Analyst & Data Science",
+  "seoTitle": "Kpatchil Urbain | Data Scientist",
   "logoPrefix": "Data ",
-  "logoHighlight": "Analyst.",
+  "logoHighlight": "Scientist.",
   "hero": {
     "greeting": "Bonjour, je suis",
     "name": "Kpatchil Urbain",
     "roles": [
       {
+        "role": "Data Scientist"
+      },
+      {
+        "role": "Data Science & Machine Learning"
+      },
+      {
+        "role": "Python · SQL · Statistiques"
+      },
+      {
         "role": "Data Analyst"
-      },
-      {
-        "role": "Analyste de Données"
-      },
-      {
-        "role": "Data Science"
-      },
-      {
-        "role": "Python & SQL"
       },
       {
         "role": "Data Storyteller"
       }
     ],
-    "subtitle": "\"Je transforme les données en décisions : collecte, nettoyage, analyse et visualisation pour révéler ce que les chiffres ont à dire.\""
+    "subtitle": "\"De la donnée brute au modèle prédictif : collecte, nettoyage, exploration, modélisation et visualisation pour transformer les chiffres en décisions.\""
   },
   "about": {
     "paragraphs": [
       {
-        "paragraph": "Passionné par **l'analyse de données et la data science**, je transforme des chiffres bruts en insights actionnables : nettoyage des données, analyse exploratoire, visualisation et reporting au service de décisions métier concrètes."
+        "paragraph": "Passionné par **la data science et le machine learning**, je construis des chaînes de traitement de données complètes : collecte, nettoyage, analyse exploratoire, modélisation et évaluation, jusqu'à la restitution visuelle des résultats. Diplômé du programme **Data Science (ALX)** et certifié **Machine Learning**."
       },
       {
-        "paragraph": "Mon parcours hybride (Économie, Data Science, ALX Ventures) et mes compétences en développement web me permettent d'aller plus loin : présenter mes analyses dans des outils interactifs et collaborer efficacement avec tous les profils, techniques comme métier."
+        "paragraph": "Ma formation en analyse de données et mon parcours hybride (Économie, ALX Ventures) me donnent un ancrage métier : je ne me contente pas de faire tourner des modèles, je m'assure qu'ils répondent à de vraies questions et que leurs résultats sont compris et utilisés."
       }
     ],
     "stats": [
@@ -52,7 +52,7 @@
       }
     ]
   },
-  "visionQuote": "\"Mon ambition : mettre la donnée au service de décisions plus justes, plus rapides et plus utiles — de l'analyse brute au storytelling qui fait agir.\"",
+  "visionQuote": "\"Mon ambition : faire du machine learning un outil simple et utile — des modèles qui prédisent, expliquent et aident à décider, au service du terrain.\"",
   "contact": {
     "email": "kpatchilurbain36@gmail.com",
     "linkedin": "https://linkedin.com/in/urbainkpatchil",

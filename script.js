@@ -168,7 +168,7 @@ const settingsPromise = (async () => {
 
 // --- 4. EFFET MACHINE A ECRIRE (Typing Effect) ---
 // Les métiers peuvent être remplacés par ceux des paramètres du site CMS.
-let textArray = ["Data Analyst", "Analyste de Données", "Data Science", "Python & SQL", "Data Storyteller"];
+let textArray = ["Data Scientist", "Data Science & Machine Learning", "Python · SQL · Statistiques", "Data Analyst", "Data Storyteller"];
 const typingText = document.querySelector(".typing-text");
 let typingStarted = false;
 
